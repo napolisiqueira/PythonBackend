@@ -5,6 +5,9 @@ from pathlib import Path
 ROOT_PATH = Path(__file__).parent
 conn = sqlite3.connect(ROOT_PATH / "clientes.sqlite")
 cur = conn.cursor()
+cur.row_factory = sqlite3.Row
+
+
 
 def create_table(conn, cur):
     cur.execute('''
